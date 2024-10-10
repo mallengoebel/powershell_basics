@@ -22,7 +22,7 @@ Add-Content -Path $logFilePath -Value $logEntry
 #*#*#*#*#*#*#*#*#*#*#*#*#* Testing Section For Removal when pressed into service *#*#*#*#*#*#*#*#*#*#*#*#*#*#
 
 # Rotate logs: Keep only the last 7 log files
-$files = Get-ChildItem -Path $logDirectory -Filter "wac-delegation_*.log" | Sort-Object LastWriteTime -Descending
+$files = Get-ChildItem -Path $logDirectory -Filter "logname_*.log" | Sort-Object LastWriteTime -Descending
 $filesToKeep = $files | Select-Object -First 7
 $filesToDelete = $files | Where-Object { $_ -notin $filesToKeep }
 foreach ($file in $filesToDelete) {
@@ -31,7 +31,7 @@ foreach ($file in $filesToDelete) {
 #*#*#*#*#*#*#*#*#*#*#*#*#* Optionally Keep 'N' Days of logs  *#*#*#*#*#*#*#*#*#*#*#*#*#*#
 # Uncomment below lines for use. 
 ## Rotate logs: Keep only the last 7 days of logs
-#$files = Get-ChildItem -Path $logDirectory -Filter "wac-delegation_*.log"
+#$files = Get-ChildItem -Path $logDirectory -Filter "logname_*.log"
 #$filesToDelete = $files | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-7) }
 #foreach ($file in $filesToDelete) {
 #    Remove-Item -Path $file.FullName -Force
