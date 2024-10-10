@@ -1,5 +1,3 @@
-# Author:			Tina Cornelison
-# Maintainer:		Matt Allen-Goebel
 # This is a basic logging function to be added to a Powershell script that wants logging 
 # for debugging, audit, or reporting purposes. To use this script properly, define the log 
 # name and path. Test for path and create as needed. The testing section should be replaced 
